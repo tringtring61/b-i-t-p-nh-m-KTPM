@@ -1,0 +1,221 @@
+package BT;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FundTransfer {
+    private WebDriver driver;
+    public void BeforeClass() {
+        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+    public void AfterClass() {
+        driver.close();
+
+    }
+    public void TC01() {
+        driver.get("http://www.demo.guru99.com/V4/index.php");
+        WebElement nameElement = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
+        nameElement.sendKeys("mngr331968");
+        WebElement passElement = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td[2]/input"));
+        passElement.sendKeys("gurYtug");
+        WebElement button=driver.findElement(By.name("btnLogin"));
+        button.click();
+    }
+    public void TC02() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC03() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC04() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        Thread.sleep(1000);
+        driver.findElement(By.name("AccSubmit")).click();
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC05() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys(" 93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC06() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("%$93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC07() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("$593550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC08() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("ahah");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC09() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("2000000000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC10() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93550");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93552");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("2000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC11() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("10225");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public void TC12() throws InterruptedException {
+        driver.get("http://www.demo.guru99.com/V4/manager/FundTransInput.php");
+        WebElement payersElement = driver.findElement(By.xpath("//tbody/tr[4]/td[2]/input[1]"));
+        payersElement.sendKeys("93552");
+        WebElement payeesElement = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/input[1]"));
+        payeesElement.sendKeys("93550");
+        WebElement amountElement = driver.findElement(By.xpath("//tbody/tr[6]/td[2]/input[1]"));
+        amountElement.sendKeys("10000");
+        WebElement descriptionElement = driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]"));
+        descriptionElement.sendKeys("chuyen tien");
+        driver.findElement(By.name("AccSubmit")).click();
+        Thread.sleep(1000);
+        if (driver.switchTo().alert()!=null){
+            driver.switchTo().alert().accept();
+        }
+    }
+    public static void main(String[] arg) throws InterruptedException {
+        FundTransfer test = new FundTransfer();
+        test.BeforeClass();
+        test.TC01();
+        test.TC02();
+        test.TC03();
+        test.TC04();
+        test.TC05();
+        test.TC06();
+        test.TC07();
+        test.TC08();
+        test.TC09();
+//        test.TC10();
+        test.TC11();
+        test.TC12();
+        Thread.sleep(1000);
+        test.AfterClass();
+    }
+}

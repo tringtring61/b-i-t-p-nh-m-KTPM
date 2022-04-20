@@ -1,0 +1,68 @@
+package base;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TestLogin {
+    private WebDriver driver;
+    public void BeforeClass() {
+        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("http://www.demo.guru99.com/V4/");
+    }
+    public void TC01(){
+//        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+//        driver =new ChromeDriver();
+//        driver.get("http://www.demo.guru99.com/V4/");
+        WebElement element = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
+        element.sendKeys("mngr331968");
+        WebElement elements = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td[2]/input"));
+        elements.sendKeys("gurYtug");
+        WebElement button=driver.findElement(By.name("btnLogin"));
+        button.click();
+    }
+    public void TC02() {
+        WebElement element = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
+        element.clear();
+        WebElement elements=driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td[2]/input"));
+        element.clear();
+        WebElement user = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
+        user.sendKeys("mngr331968");
+//        WebElement elements=driver.findElement(By.name("password"));
+//        element.sendKeys("gurYtug");
+        WebElement button=driver.findElement(By.name("btnLogin"));
+        button.click();
+        driver.switchTo().alert().accept();
+    }
+    public void TC03() {
+        WebElement element = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
+        element.clear();
+//        WebElement elements=driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td[2]/input"));
+//        element.clear();
+        WebElement user = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
+        user.sendKeys("mngr331969");
+        WebElement pass = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td[2]/input"));
+        pass.sendKeys("gurYtug");
+        WebElement button=driver.findElement(By.name("btnLogin"));
+        button.click();
+        driver.switchTo().alert().accept();
+    }
+    public static void main(String[] arg) throws InterruptedException {
+        TestLogin test = new TestLogin();
+        test.BeforeClass();
+        Thread.sleep(1000);
+        test.TC02();
+        Thread.sleep(5000);
+        test.TC03();
+        Thread.sleep(5000);
+        test.TC01();
+        test.AfterClass();
+
+}
+    public void AfterClass() {
+       driver.quit();
+    }
+}
